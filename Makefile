@@ -1,4 +1,11 @@
+CC = gcc
+CFLAGS = -Wall -O3 `sdl2-config --cflags`
+LIBS = `sdl2-config --libs` -lm
+SRC = src/main.c src/physics.c src/render.c
+OBJ = pendulum
+
 all:
-	gcc -Wall -O2 `sdl2-config --cflags` \
-	    src/main.c src/physics.c src/render.c \
-	    -o pendulum `sdl2-config --libs` -lm
+	$(CC) $(CFLAGS) $(SRC) -o $(OBJ) $(LIBS)
+
+clean:
+	rm -f $(OBJ)
