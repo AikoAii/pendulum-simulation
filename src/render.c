@@ -20,7 +20,7 @@ static void draw_bob(SDL_Renderer *r, int cx, int cy, int rad) {
 }
 
 void render_frame(SDL_Renderer *r, Simulation *s, int W, int H, double zoom) {
-    // Background Biru Gelap
+    // Background
     SDL_SetRenderDrawColor(r, 10, 10, 25, 255);
     SDL_RenderClear(r);
 
@@ -51,7 +51,7 @@ void render_frame(SDL_Renderer *r, Simulation *s, int W, int H, double zoom) {
         draw_bob(r, (int)x2, (int)y2, 12);
     }
 
-    // Render Jejak (Alpha Blending)
+    // Render Traces (Alpha Blending)
     SDL_SetRenderDrawBlendMode(r, SDL_BLENDMODE_BLEND);
     for (int i = 0; i < trail_count; i++) {
         int idx = (trail_next - i - 1 + TRAIL_MAX) % TRAIL_MAX;

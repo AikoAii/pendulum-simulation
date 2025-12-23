@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
     SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 
     Simulation sim;
-    init_simulation(&sim, 1); // Mulai dengan Double Pendulum
+    init_simulation(&sim, 1); // start with Double Pendulum
 
     double zoom = 1.0;
     int running = 1;
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 
         update_simulation(&sim);
         render_frame(ren, &sim, 1000, 700, zoom);
-        SDL_Delay(16); // Stabilkan di ~60 FPS
+        SDL_Delay(16); // Stabilize at ~60 FPS
     }
 
     SDL_DestroyRenderer(ren);

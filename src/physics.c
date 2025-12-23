@@ -10,9 +10,9 @@ void init_simulation(Simulation *s, int mode) {
     s->paused = 0;
 
     if (mode == 0) {
-        s->single.theta = 1.5; // Sudut awal
+        s->single.theta = 1.5; // Starting angle
         s->single.omega = 0.0;
-        s->single.L = 1.2;     // Panjang lengan
+        s->single.L = 1.2;     // Sleeve length
         s->single.m = 1.0;
     } else {
         s->dbl.theta1 = 1.5; s->dbl.theta2 = 1.5;
@@ -22,7 +22,7 @@ void init_simulation(Simulation *s, int mode) {
     }
 }
 
-// Menghitung percepatan sudut untuk pendulum ganda (Persamaan Lagrange)
+// Calculate angular acceleration for a double pendulum (Lagrange's Equation)
 static void double_accel(Simulation *s, double t1, double w1, double t2, double w2, double *a1, double *a2) {
     double m1 = s->dbl.m1, m2 = s->dbl.m2, L1 = s->dbl.L1, L2 = s->dbl.L2, g = s->gravity;
     
